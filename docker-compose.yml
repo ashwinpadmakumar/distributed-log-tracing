@@ -1,0 +1,35 @@
+version: "3.8"
+networks:
+  personal-network:
+    external: true
+services:
+  client:
+    build:
+      context: .
+      dockerfile: sleuth-client/Dockerfile
+    volumes:
+      - ./:/app/
+      - ~/.gradle:/tmp/gradle_user_home
+    working_dir: /app/source/sleuth-client/
+    command: [ "sh", "./run.sh" ]
+    networks:
+      - personal-network
+    ports:
+      - 8080:8080
+    hostname: sleuth-client
+    container_name: sleuth-client
+  server:
+    build:
+      context: .
+      dockerfile: sleuth-server/Dockerfile
+    volumes:
+      - ./:/app/
+      - ~/.gradle:/tmp/gradle_user_home
+    working_dir: /app/source/sleuth-server/
+    command: [ "sh", "./run.sh" ]
+    networks:
+      - personal-network
+    ports:
+      - 8081:8081
+    hostname: sleuth-server
+    container_name: sleuth-server

@@ -10,7 +10,7 @@ services:
     volumes:
       - ./:/app/
       - ~/.gradle:/tmp/gradle_user_home
-    working_dir: /app/source/sleuth-client/
+    working_dir: /app/sleuth-client/
     command: [ "sh", "./run.sh" ]
     networks:
       - personal-network
@@ -25,7 +25,7 @@ services:
     volumes:
       - ./:/app/
       - ~/.gradle:/tmp/gradle_user_home
-    working_dir: /app/source/sleuth-server/
+    working_dir: /app/sleuth-server/
     command: [ "sh", "./run.sh" ]
     networks:
       - personal-network

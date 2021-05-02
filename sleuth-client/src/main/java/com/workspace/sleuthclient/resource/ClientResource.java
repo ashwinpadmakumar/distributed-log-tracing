@@ -21,7 +21,7 @@ import org.springframework.web.client.RestTemplate;
 public class ClientResource {
 
   private static final Logger logger = LoggerFactory.getLogger(ClientResource.class);
-  private static final String URL = "http://localhost:8081/rest/noop/server";
+  private static final String URL = "http://sleuth-server:8081/rest/noop/server";
 
   @Autowired
   private RestTemplate restTemplate;
